@@ -1,0 +1,14 @@
+
+.imagebody{
+color: aquamarine;
+}
+
+body{
+padding: 0px;
+margin: 0px;
+}
+.fillimage {
+    width: 100%;
+    height:auto;
+    
+}

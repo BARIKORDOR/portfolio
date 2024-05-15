@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .custom-img {
+      max-width: 100%;
+      /* Ensure responsiveness */
+      margin-bottom: 10px;
+      /* Space between image and button */
+    }
+
+    .col-md-4 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-primary {
+      width: 100%;
+      /* Full width button */
+    }
+
+    .center-align {
+      width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .center-align-text {
+
+      text-align: center;
+    }
+
+    .section-heading {
+      text-align: center;
+      text-shadow: 20px;
+    }
+
+    .arrow-list {
+      list-style: none;
+      /* Remove default bullets */
+      padding: 0;
+      /* Remove default padding */
+      text-align: center;
+    }
+
+    .arrow-list li {
+      position: relative;
+      /* Position relative to the li for pseudo-element */
+      padding-left: 20px;
+      /* Space for the arrow */
+      margin-bottom: 10px;
+      /* Space between list items */
+      display: block;
+    }
+
+    .arrow-list li:before {
+      content: '→';
+      /* Custom arrow */
+      position: absolute;
+      /* Absolute positioning relative to the li */
+      left: 0;
+      /* Position the arrow */
+      top: 0;
+      /* Align with top of the li */
+      font-size: 1.2em;
+      /* Adjust size of the arrow */
+      color: #333;
+      /* Arrow color */
+      display: block;
+    }
+
+    .footer-style {
+      background-color: blueviolet;
+    }
+
+    .border-skills {      
+      border-color: blueviolet;
+      border-radius: 10px;
+      border-style: dotted;
+      padding: 5px;
+    }
+    .footer-area {
+    padding: 40px 0;
+    background: #b5bdd2;
+    margin: 10px;
+    position: relative;
+    border-radius: 5px;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <img src="images/2.1.png" alt="image" class="img-fluid">
+    </div>
+
+    <div>
+      <h2>Barikordor Wankhar</h2>
+      <h5>Software developer</h5>
+      <p>I am a software developer from India and now I live in the Wassenaar, Netherlands.
+        After I graduated from Lovely Professional University, India with a degree in Bacheclor of Technology,
+        Computer Science and Engineering,
+        I have been working on interesting projects that bring the world together.
+        Here's a portfolio of some of my work. I hope you enjoy them!</p>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <img src="images/5.png" class="custom-img" alt="Birthday">
+        <a href="birthday.html" class="btn btn-primary" target="_blank">Click Here</a>
+      </div>
+      <div class="col-md-4">
+        <img src="images/3.png" class="custom-img" alt="GitHub">
+        <a href="https://github.com/BARIKORDOR" class="btn btn-primary" target="_blank">Click Here</a>
+      </div>
+      <div class="col-md-4">
+        <img src="images/weather.png" class="custom-img" alt="Weather">
+        <a href="weather.html" class="btn btn-primary" target="_blank">Click Here</a>
+      </div>
+    </div>
+    <div>
+      <img src="images/divider-icon.png" class="center-align" alt="divider icon">
+    </div>
+    <div>
+      <h2 class="center-align-text">Education</h2>
+      <h5 class="center-align-text">Bacheclor of Technology, Computer Science and Engineering,</h5>
+      <h5 class="center-align-text"> Punjab, India</h5>
+    </div>
+    <div>
+      <img src="images/divider-icon.png" class="center-align" alt="divider icon">
+    </div>
+    <div>
+      <h2 class="section-heading">Skill Summary</h2>
+      <div class="center-align">
+        <button class="border-skills">HTML</button>
+        <button class="border-skills">CSS</button>
+        <button class="border-skills">JS</button>
+        <button class="border-skills">GIT</button>
+      </div>
+
+
+    </div>
+    <div>
+      <img src="images/divider-icon.png" class="center-align" alt="divider icon">
+    </div>
+    <!-- <footer> -->
+    <div class="col-md-12 footer-area">
+      <div class="row">
+        <div class="center-align">
+          <a href="https://www.linkedin.com/" title="" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" style="width: 50px;" alt=""></a>
+      
+          <a href="https://www.facebook.com/" title="" target="_blank"><img src="images/facebook-logo.png" style="width: 50px;" alt=""></a>
+      </div>
+      </div>
+      
+    </div>
+
+
+  </div>
+
+
+  <!-- </footer> -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $("#getbirthday").on("click", function () {
+      var url = '/download/Starter//birthday.html';
+      window.location = url;
+      return;
+    });
+  </script>
+</body>
+
+</html>

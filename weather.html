@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Check Temperature</h2>
+        <div class="form-group">
+            <label for="city">Enter City Name:</label>
+            <input type="text" class="form-control" id="city" placeholder="City Name" required>
+        </div>
+        <button id="checkTemp" class="btn btn-primary btn-block">Check Temperature</button>
+        <div class="result" id="result"></div>
+        <img id="weather" src="" alt="Weather" style="max-width: 100%; height: auto;">
+    </div>
+
+    <script>
+        document.getElementById('checkTemp').addEventListener('click', function() {
+            const city = document.getElementById('city').value;
+            const apiKey = 'b87411e3a1f383d7e94fd88b9128b04d'; // Replace with your OpenWeatherMap API key
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cod === 200) {
+                        const temperature = data.main.temp;
+                        document.getElementById('result').innerText = `The temperature in ${city} is ${temperature}°C.`;
+                        const imageUrl = `images/weather.png`;
+                        document.getElementById('weather').src = imageUrl;
+                    } else {
+                        document.getElementById('result').innerText = `Error: ${data.message}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching the weather data:', error);
+                    document.getElementById('result').innerText = 'An error occurred while fetching the weather data.';
+                });
+        });
+
+        // Get references to the select element and the result image
+        const selectElement = document.getElementById('fruits');
+        const fruitImage = document.getElementById('fruitImage');
+
+        // Add an event listener to handle changes to the select element
+        selectElement.addEventListener('change', (event) => {
+            // Get the selected value
+            const selectedValue = event.target.value;
+            // Update the image src based on the selected value
+            fruitImage.src = `images/${selectedValue}.jpg`;
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

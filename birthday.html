@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day of the Week Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center">Enter Your Date of Birth</h2>
+      <form id="dobForm">
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" class="form-control" id="dob" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div class="result" id="result"></div>
+    </div>
+    <script>
+      $form = document
+        .getElementById("dobForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          // Get the input value (birthday)
+          const birthdayInput = document.getElementById("dob").value;
+
+          // Create a Date object from the input value
+          const birthdayDate = new Date(birthdayInput);
+
+          // Array of weekdays
+          const weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ];
+
+          // Get the day of the week (0-6) from the Date object
+          const dayOfWeekIndex = birthdayDate.getDay();
+
+          // Get the corresponding weekday from the array
+          const dayOfWeek = weekdays[dayOfWeekIndex];
+
+          // Display the result
+          const resultElement = document.getElementById("result");
+          resultElement.textContent = `Your birthday falls on a ${dayOfWeek}.`;
+          const dob = document.getElementById("dob").value;
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
